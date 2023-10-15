@@ -1,18 +1,42 @@
 import 'bootstrap/dist/css/bootstrap.min.css'
+import { Container, Row, Col, Button } from 'react-bootstrap'
 import './App.css'
 import { useParams } from './hooks/useParams'
+import { AUTO_LANGUAGE } from "./constants"
+import { ArrowsIcon } from './components/Icons'
+import { LanguageSelector } from './components/LanguageSelector'
 
 
 function App() {
-  const {fromLanguage, setFromLanguage} = useParams()
+  const { fromLanguage, toLanguage, interchangeLanguages, setFromLanguage, setToLanguage } = useParams()
   return (
-    <div className='App'>
+    <Container fluid>
       <h1>Clon google translate</h1>
-      <button onClick={() => {
-        setFromLanguage('it')
-      }}>Cambiar a Español</button>
-      {fromLanguage}
-    </div>
+
+      <Row>
+        <Col>
+          <LanguageSelector
+            type='from'
+            value={fromLanguage}
+            onChange={setFromLanguage} />
+          {fromLanguage}
+        </Col>
+        <Col>
+          <Button variant='link'
+            disabled={fromLanguage === AUTO_LANGUAGE}
+            onClick={interchangeLanguages}>
+            <ArrowsIcon />
+          </Button>
+        </Col>
+        <Col>
+          <LanguageSelector
+            type='to'
+            value={toLanguage}
+            onChange={setToLanguage} />
+          {toLanguage}
+        </Col>
+      </Row>
+    </Container>
   )
 }
 
