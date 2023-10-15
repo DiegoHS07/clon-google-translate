@@ -3,3 +3,10 @@
   margin: 0 auto;
   padding: 2rem;
 }
+
+body{
+  background-image: url(./bg.svg);
+  background-repeat: no-repeat;
+  background-size: cover;
+  color: white;
+}
