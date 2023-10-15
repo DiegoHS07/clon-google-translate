@@ -20,7 +20,7 @@ export const TextArea = ({ type, loading = false, value, onChange }: Props) => {
 
     const styles = type === SectionType.From
         ? commonStyles
-        : { ...commonStyles, backgroundColor: '#F5F5F5' }
+        : { ...commonStyles, backgroundColor: '#C9C8C8' }
 
     const handleChange = (event: React.ChangeEvent<HTMLTextAreaElement>) => { 
         onChange(event.target.value)
@@ -31,6 +31,7 @@ export const TextArea = ({ type, loading = false, value, onChange }: Props) => {
             autoFocus={type === SectionType.From}
             as="textarea"
             rows={3}
+            disabled={type === SectionType.To}
             placeholder={getPlaceholder({ type, loading })}
             style={styles}
             value={value}
