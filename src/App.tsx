@@ -9,7 +9,7 @@ function App() {
     <div className='App'>
       <h1>Clon google translate</h1>
       <button onClick={() => {
-        setFromLanguage('es')
+        setFromLanguage('it')
       }}>Cambiar a Español</button>
       {fromLanguage}
     </div>
