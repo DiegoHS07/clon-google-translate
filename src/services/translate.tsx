@@ -18,8 +18,7 @@ export async function translate({
     method: "POST",
     headers: {
       "content-type": "application/x-www-form-urlencoded",
-      // "X-RapidAPI-Key": import.meta.env.API_URL,
-      "X-RapidAPI-Key": "43a48ef337msh881295bf470b267p171ecbjsn7040e65a684a",
+      "X-RapidAPI-Key": import.meta.env.API_URL,
       "X-RapidAPI-Host": "text-translator2.p.rapidapi.com",
     }, 
     body: new URLSearchParams({
