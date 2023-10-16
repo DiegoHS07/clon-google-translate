@@ -10,13 +10,13 @@ interface Props {
 
 const commonStyles = { border: 0, height: '200px' }
 
-const getPlaceholder = ({ type, loading }: { type: SectionType, loading: boolean }) => {
+const getPlaceholder = ({ type, loading }: { type: SectionType, loading?: boolean }) => {
     if (type === SectionType.From) return 'Introducir texto'
-    if (loading) return 'Cargando...'
+    if (loading === true) return 'Cargando...'
     return 'Traducción'
 }
 
-export const TextArea = ({ type, loading = false, value, onChange }: Props) => {
+export const TextArea = ({ type, loading, value, onChange }: Props) => {
 
     const styles = type === SectionType.From
         ? commonStyles

@@ -7,10 +7,22 @@ import { ArrowsIcon } from './components/Icons'
 import { LanguageSelector } from './components/LanguageSelector'
 import { SectionType } from './types.d'
 import { TextArea } from './components/TextArea'
-
+import { useEffect } from 'react'
+import { translate } from '../src/services/translate'
 
 function App() {
-  const {loading, fromLanguage, toLanguage, fromText, result, interchangeLanguages, setFromLanguage, setToLanguage, setFromText, setResult } = useParams()
+  
+  const { loading, fromLanguage, toLanguage, fromText, result, interchangeLanguages, setFromLanguage, setToLanguage, setFromText, setResult } = useParams()
+  useEffect(() => {
+    if (fromText === '') return 
+    translate({ fromLanguage, toLanguage, text: fromText })
+      .then(result => {
+        if (result == null) return
+        setResult(result)
+      })
+      .catch(() => { setResult('Error')})
+  },[fromText])
+
   return (
     <Container fluid>
       <h1>Clon Google Translate</h1>
