@@ -18,7 +18,7 @@ export async function translate({
     method: "POST",
     headers: {
       "content-type": "application/x-www-form-urlencoded",
-      "X-RapidAPI-Key": import.meta.env.KEY_API,
+      "X-RapidAPI-Key": import.meta.env.VITE_KEY_API,
       "X-RapidAPI-Host": "text-translator2.p.rapidapi.com",
     }, 
     body: new URLSearchParams({
